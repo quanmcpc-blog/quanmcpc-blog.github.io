@@ -1,0 +1,53 @@
+:root {
+    --bg: #fff;
+    --fg: #000;
+}
+body {
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: var(--bg);
+    color: var(--fg);
+}
+h1, h2, h3, h4, h5, h6, p { margin: 12px 5px 12px 5px; }
+div.blogitem {
+    border: 2px solid var(--fg);
+    height: auto;
+    margin: 5px auto 5px auto;
+}
+@media (min-width: 600px) { div.blogitem { width: 100%; } }
+@media (min-width: 680px) { div.blogitem { width: 65%; } }
+@media (min-width: 960px) { div.blogitem { width: 55%; } }
+div.blogitem h2 {
+    margin: 8px;
+}
+div.blogitem p {
+    overflow-wrap: break-word;
+}
+a {
+    margin: 0 5px 0 5px;
+    color: red;
+}
+div#loadArticle h2, div#loadArticle svg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+div#themeChange {
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
+}
+div#themeChange select {
+    background: var(--bg);
+    color: var(--fg);
+    border: 2px solid var(--fg);
+}
+div#loadingOverlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(128, 128, 128);
+    position: fixed;
+    top: 0; left: 0;
+}
