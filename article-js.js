@@ -58,5 +58,6 @@
                     }
                     document.getElementById("loadArticle").remove()
                 })
+                document.title = `QuanMCPC's BlogSite | ${!!res_json[blogId]?.title ? res_json[blogId]?.title : "Invalid blog ID"}`
         })
 })()

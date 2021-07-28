@@ -4,15 +4,10 @@ TITLE: Template Blog
 PREVIEW: This is a template blog, and since I don't have anything to talk, I just gonna type the whole "Lopem ipsum" stuff.
 CREATED_ON: 2021-07-27
 -->
-## This is a test
+## Template Blog
 
-This is a text
+This is a template blog, and since I don't have anything to talk, I just gonna type the whole "Lopem ipsum" stuff.
 
-![Test](https://www.google.com/logos/2020/kitsune/rc6/CTA-Swimming-174787828-174787766.png)
-
-[Google](https://google.com/)
-
-This is a template blog, and since I don't have anything to talk, I just gonna type the whole "Lopem ipsum" stuff
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id tellus eleifend est ullamcorper commodo. Vivamus elit leo, facilisis vel lobortis vitae, fringilla eu nibh. Aliquam tristique nunc lorem, nec vestibulum ex bibendum eu. Ut aliquam placerat est, vitae consequat leo facilisis quis. Nullam in orci lacus. Proin dapibus nisi in ipsum pretium faucibus. Sed malesuada tortor in erat bibendum ultrices. Praesent a lacinia elit, vel tempus nibh. Morbi vel enim dolor. Curabitur commodo ante non nulla imperdiet rutrum. Praesent fermentum felis in ex auctor, eget dignissim nisi convallis.
 
 Nullam luctus magna quis odio aliquet molestie. Fusce eget eleifend ante. Maecenas tincidunt eu nunc ut molestie. Aliquam finibus ornare pulvinar. Donec nec nunc non neque interdum dignissim. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque sed eros odio. Sed ornare finibus vehicula. Cras imperdiet rutrum nisl. In id facilisis nibh, at viverra ligula. Aliquam erat volutpat. Fusce eu scelerisque leo. Aliquam sit amet dolor eu ipsum finibus feugiat.
