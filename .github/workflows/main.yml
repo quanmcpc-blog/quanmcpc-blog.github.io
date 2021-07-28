@@ -23,7 +23,7 @@ jobs:
 
       - name: Run Python script that will update the blog list
         run: |
-          python ../../update_article.py
+          python /update_article.py
 
       - name: Commit files
         run: |
