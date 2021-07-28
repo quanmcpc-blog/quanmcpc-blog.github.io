@@ -23,8 +23,8 @@ jobs:
 
       - name: Run Python script that will update the blog list
         run: |
-          # python /update_article.py
-          python -c "import os; print(os.getcwd())"
+          python update_article.py
+          # python -c "import os; print(os.getcwd())"
 
       - name: Commit files
         run: |

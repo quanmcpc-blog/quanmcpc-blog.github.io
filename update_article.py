@@ -16,5 +16,6 @@ for path, _, files in os.walk(path1):
                 "created_on": createdon,
                 "link": os.path.join(path, f)
             })
+            print(json1)
 with open("./article.json", "w", encoding="UTF-8") as json_data:
     json.dump(json1, json_data, indent=4)
