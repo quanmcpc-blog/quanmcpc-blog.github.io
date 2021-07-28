@@ -31,4 +31,32 @@
     }, 1000)
     document.getElementById("loadingOverlay").style.transition = "width 0.5s";
     document.getElementById("loadingOverlay").style.width = "0";
+    function getParameterByName(name, url = window.location.href) {
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+    var blogId = getParameterByName("id");
+    fetch("/article.json")
+        .then(res => res.json())
+        .then(res_json => {
+            fetch(res_json[blogId]?.link)
+                .then(res => {
+                    if (res.status == 200) {
+                        res.text().then(res_text => {
+                            var converter = new showdown.Converter();
+                            var html = converter.makeHtml(res_text);
+                            console.log(html)
+                            document.getElementById("theActualContent").insertAdjacentHTML("beforeend", html)
+                        })
+                    } else {
+                        document.getElementById("error").style.display = "block";
+                        document.getElementById("blogName").innerHTML = blogId;
+                    }
+                    document.getElementById("loadArticle").remove()
+                })
+        })
 })()

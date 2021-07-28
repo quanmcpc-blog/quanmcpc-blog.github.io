@@ -4,7 +4,9 @@ window.onload = () => {
     fetch("/article.json")
         .then(e => e.json())
         .then(e => {
-            e?.forEach((/** @type {{ title: string; preview_text: string; created_on: string; link: string; }} */ element) => {
+            Object.keys(e).forEach(idname => {
+                /** @type {{ title: string; preview_text: string; created_on: string; link: string; }} */
+                var element = e[idname]
                 var section = document.createElement("div");
                 section.classList.add("blogitem")
                 var title = document.createElement("h2");
@@ -14,7 +16,7 @@ window.onload = () => {
                 var createdon = document.createElement("p");
                 createdon.innerHTML = `Created on: ${element.created_on}`;
                 var clickhere = document.createElement("a");
-                clickhere.href = element.link;
+                clickhere.href = `/article.html?id=${idname}`;
                 clickhere.innerHTML = "Click here to read";
                 section.appendChild(title);
                 section.appendChild(preview);
@@ -22,7 +24,7 @@ window.onload = () => {
                 section.appendChild(createdon);
                 document.getElementById("bloghere").appendChild(section);
                 document.getElementById("loadArticle").style.display = "none";
-            });
+            })
         })
     if (localStorage.getItem("theme") == null) {
         localStorage.setItem("theme", "0")
