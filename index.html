@@ -39,11 +39,11 @@
             <!-- <label for="disableAnimation">Disable Animation? <sub>(Require reload)</sub></label> -->
             <!-- <input type="checkbox" name="disableAnimation" id="disableAnimation" /> -->
         </div>
-        <div id="loadingOverlay"></div>
+        <!-- <div id="loadingOverlay"></div> -->
     </body>
     <script>
         //@ts-check/
-        window.onload = () => {
+        // window.onload = () => {
             console.log("fdasfdsafdsa")
             fetch("/article.json")
                 .then(e => e.json())
@@ -71,7 +71,7 @@
                     })
                 })
             if (localStorage.getItem("theme") == null) { localStorage.setItem("theme", "0") }
-            if (localStorage.getItem("noAnimation") == null) { localStorage.setItem("noAnimation", "no") }
+            // if (localStorage.getItem("noAnimation") == null) { localStorage.setItem("noAnimation", "no") }
             /**
              * 
              * @param {string} name The name of the value
@@ -97,24 +97,24 @@
                 // localStorage.setItem("noAnimation", document.getElementById("disableAnimation").checked ? "yes" : "no")
             // }
             func1()
-            setTimeout(() => {
-                // if (localStorage.getItem("noAnimation") == "no") {
-                    document.querySelectorAll("a").forEach((elem) => {
-                        elem.addEventListener("click", (e) => {
-                            console.log(e)
-                            e.preventDefault();
-                            document.getElementById("loadingOverlay").style.width = "100%";
-                            setTimeout(() => {
-                                window.location.href = elem.href;
-                            }, 500)
-                        })
-                    })
-                // }
-            }, 1000)
+            // setTimeout(() => {
+            //     // if (localStorage.getItem("noAnimation") == "no") {
+            //         document.querySelectorAll("a").forEach((elem) => {
+            //             elem.addEventListener("click", (e) => {
+            //                 console.log(e)
+            //                 e.preventDefault();
+            //                 document.getElementById("loadingOverlay").style.width = "100%";
+            //                 setTimeout(() => {
+            //                     window.location.href = elem.href;
+            //                 }, 500)
+            //             })
+            //         })
+            //     // }
+            // }, 1000)
             // if (localStorage.getItem("noAnimation") == "no") {
-                document.getElementById("loadingOverlay").style.transition = "width 0.5s";
+                // document.getElementById("loadingOverlay").style.transition = "width 0.5s";
             // }
-            document.getElementById("loadingOverlay").style.width = "0";
-        }
+            // document.getElementById("loadingOverlay").style.width = "0";
+        // }
     </script>
 </html>
