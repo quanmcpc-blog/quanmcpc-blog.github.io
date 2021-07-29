@@ -98,7 +98,7 @@
             // }
             func1()
             setTimeout(() => {
-                if (localStorage.getItem("noAnimation") == "no") {
+                // if (localStorage.getItem("noAnimation") == "no") {
                     document.querySelectorAll("a").forEach((elem) => {
                         elem.addEventListener("click", (e) => {
                             console.log(e)
@@ -109,7 +109,7 @@
                             }, 500)
                         })
                     })
-                }
+                // }
             }, 1000)
             // if (localStorage.getItem("noAnimation") == "no") {
                 document.getElementById("loadingOverlay").style.transition = "width 0.5s";
