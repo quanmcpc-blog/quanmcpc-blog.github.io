@@ -16,6 +16,39 @@
         <meta property="og:type" content="website">
         <meta property="og:image" content="https://quanmcpc-blog.github.io/logo.png">
         <link rel="shortcut icon" href="/favicon.ico">
+        <style>
+            div.blogitem {
+                border: 2px solid var(--fg);
+                height: auto;
+                margin: 5px auto 5px auto;
+            }
+            @media (min-width: 600px) { div.blogitem { width: 100%; } }
+            @media (min-width: 680px) { div.blogitem { width: 65%; } }
+            @media (min-width: 960px) { div.blogitem { width: 55%; } }
+            div.blogitem h2 {
+                margin: 8px;
+            }
+            div.blogitem p {
+                overflow-wrap: break-word;
+            }
+            div.blogitem a {
+                margin: 0 5px 0 5px;
+            }
+            a { color: red; }
+            div#loadArticle h2, div#loadArticle img {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+            }
+            /* div#loadingOverlay {
+                width: 100%;
+                height: 100%;
+                background-color: rgb(128, 128, 128);
+                position: fixed;
+                top: 0; left: 0;
+            } */
+        </style>
         <title>QuanMCPC's BlogSite</title>
     </head>
     <body>
@@ -35,15 +68,9 @@
                 <option value="light">Light</option>
                 <option value="dark">Dark</option>
             </select>
-            <!-- <hr> -->
-            <!-- <label for="disableAnimation">Disable Animation? <sub>(Require reload)</sub></label> -->
-            <!-- <input type="checkbox" name="disableAnimation" id="disableAnimation" /> -->
         </div>
-        <!-- <div id="loadingOverlay"></div> -->
     </body>
     <script>
-        //@ts-check/
-        // window.onload = () => {
             console.log("fdasfdsafdsa")
             fetch("/article.json")
                 .then(e => e.json())
@@ -71,7 +98,6 @@
                     })
                 })
             if (localStorage.getItem("theme") == null) { localStorage.setItem("theme", "0") }
-            // if (localStorage.getItem("noAnimation") == null) { localStorage.setItem("noAnimation", "no") }
             /**
              * 
              * @param {string} name The name of the value
@@ -88,33 +114,10 @@
                 }
             }
             document.getElementById("theme").selectedIndex = parseInt(localStorage.getItem("theme"));
-            // document.getElementById("disableAnimation").checked = localStorage.getItem("noAnimation") == "yes" ? true : false
             document.getElementById("theme").onchange = (e) => {
                 localStorage.setItem("theme", document.getElementById("theme").selectedIndex);
                 func1()
             }
-            // document.getElementById("disableAnimation").onchange = (e) => {
-                // localStorage.setItem("noAnimation", document.getElementById("disableAnimation").checked ? "yes" : "no")
-            // }
             func1()
-            // setTimeout(() => {
-            //     // if (localStorage.getItem("noAnimation") == "no") {
-            //         document.querySelectorAll("a").forEach((elem) => {
-            //             elem.addEventListener("click", (e) => {
-            //                 console.log(e)
-            //                 e.preventDefault();
-            //                 document.getElementById("loadingOverlay").style.width = "100%";
-            //                 setTimeout(() => {
-            //                     window.location.href = elem.href;
-            //                 }, 500)
-            //             })
-            //         })
-            //     // }
-            // }, 1000)
-            // if (localStorage.getItem("noAnimation") == "no") {
-                // document.getElementById("loadingOverlay").style.transition = "width 0.5s";
-            // }
-            // document.getElementById("loadingOverlay").style.width = "0";
-        // }
     </script>
 </html>
