@@ -35,9 +35,86 @@
                 <option value="light">Light</option>
                 <option value="dark">Dark</option>
             </select>
+            <!-- <hr> -->
+            <!-- <label for="disableAnimation">Disable Animation? <sub>(Require reload)</sub></label> -->
+            <!-- <input type="checkbox" name="disableAnimation" id="disableAnimation" /> -->
         </div>
         <div id="loadingOverlay"></div>
     </body>
-    <script src="/script.js" defer></script>
-    <script src="/blogdown.js" defer></script>
+    <script>
+        //@ts-check/
+        window.onload = () => {
+            console.log("fdasfdsafdsa")
+            fetch("/article.json")
+                .then(e => e.json())
+                .then(e => {
+                    Object.keys(e).forEach(idname => {
+                        /** @type {{ title: string; preview_text: string; created_on: string; link: string; }} */
+                        var element = e[idname]
+                        var section = document.createElement("div");
+                        section.classList.add("blogitem")
+                        var title = document.createElement("h2");
+                        title.innerHTML = element.title;
+                        var preview = document.createElement("p");
+                        preview.innerHTML = `${element.preview_text}...`;
+                        var createdon = document.createElement("p");
+                        createdon.innerHTML = `Created on: ${element.created_on}`;
+                        var clickhere = document.createElement("a");
+                        clickhere.href = `/article.html?id=${idname}`;
+                        clickhere.innerHTML = "Click here to read";
+                        section.appendChild(title);
+                        section.appendChild(preview);
+                        section.appendChild(clickhere);
+                        section.appendChild(createdon);
+                        document.getElementById("bloghere").appendChild(section);
+                        document.getElementById("loadArticle").style.display = "none";
+                    })
+                })
+            if (localStorage.getItem("theme") == null) { localStorage.setItem("theme", "0") }
+            if (localStorage.getItem("noAnimation") == null) { localStorage.setItem("noAnimation", "no") }
+            /**
+             * 
+             * @param {string} name The name of the value
+             * @param {string} value The value
+             */
+            function setProp(name, value) { document.documentElement.style.setProperty(name, value) }
+            function func1() {
+                if (document.getElementById("theme").selectedIndex == 0) {
+                    setProp("--bg", "#fff")
+                    setProp("--fg", "#000")
+                } else {
+                    setProp("--bg", "#000")
+                    setProp("--fg", "#fff")
+                }
+            }
+            document.getElementById("theme").selectedIndex = parseInt(localStorage.getItem("theme"));
+            // document.getElementById("disableAnimation").checked = localStorage.getItem("noAnimation") == "yes" ? true : false
+            document.getElementById("theme").onchange = (e) => {
+                localStorage.setItem("theme", document.getElementById("theme").selectedIndex);
+                func1()
+            }
+            // document.getElementById("disableAnimation").onchange = (e) => {
+                // localStorage.setItem("noAnimation", document.getElementById("disableAnimation").checked ? "yes" : "no")
+            // }
+            func1()
+            setTimeout(() => {
+                if (localStorage.getItem("noAnimation") == "no") {
+                    document.querySelectorAll("a").forEach((elem) => {
+                        elem.addEventListener("click", (e) => {
+                            console.log(e)
+                            e.preventDefault();
+                            document.getElementById("loadingOverlay").style.width = "100%";
+                            setTimeout(() => {
+                                window.location.href = elem.href;
+                            }, 500)
+                        })
+                    })
+                }
+            }, 1000)
+            // if (localStorage.getItem("noAnimation") == "no") {
+                document.getElementById("loadingOverlay").style.transition = "width 0.5s";
+            // }
+            document.getElementById("loadingOverlay").style.width = "0";
+        }
+    </script>
 </html>
