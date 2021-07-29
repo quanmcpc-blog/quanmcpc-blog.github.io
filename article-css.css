@@ -17,6 +17,10 @@ div#blogcontent img {
     width: 100%;
     height: auto;
 }
+div#loadArticle img {
+    width: 200px;
+    height: 200px;
+}
 h1, h2, h3, h4, h5, h6, p { margin: 12px 5px 12px 5px; font-weight: normal; }
 @media (min-width: 600px) { div#blogcontent { width: 100%; } }
 @media (min-width: 680px) { div#blogcontent { width: 65%; } }
