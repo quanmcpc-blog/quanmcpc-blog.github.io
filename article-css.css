@@ -13,6 +13,10 @@ div#blogcontent {
     height: auto;
     margin: 5px auto 5px auto;
 }
+div#blogcontent img {
+    width: 100%;
+    height: auto;
+}
 h1, h2, h3, h4, h5, h6, p { margin: 12px 5px 12px 5px; font-weight: normal; }
 @media (min-width: 600px) { div#blogcontent { width: 100%; } }
 @media (min-width: 680px) { div#blogcontent { width: 65%; } }
